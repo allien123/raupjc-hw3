@@ -1,0 +1,21 @@
+﻿@model zadatak2.ViewModels.AddTodoViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add item</title>
+</head>
+<body>
+<div>
+    <form asp-action="Add" method="post">
+        Text: <input asp-for="Text"/> <span asp-validation-for="Text"></span> <br/>
+        Date due: <input asp-for="DateDue"/>  <br/>
+        Labels: <input asp-for="labels"/> (separate labels using ';') <br/>
+        <input type="submit"/>
+    </form>
+    <a asp-controller="Todo" asp-action="Index">Back</a>
+</div>
+</body>
+</html>

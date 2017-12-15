@@ -286,3 +286,5 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+/raupjc-hw3/SQLQuery2.sql
+/raupjc-hw3/SQLQuery1.sql
