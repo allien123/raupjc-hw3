@@ -7,25 +7,22 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Completed</title>
+    <link rel="stylesheet" href="~/css/TodoStyle.css" />
 </head>
 <body>
-    <h1>Completed Todos</h1>
-
-    <br />
-    @foreach (var todoModel in @Model.TodoModels)
-    {
-        <div>
-            <b>@todoModel.Text</b> <br />
-            @todoModel.DateCompleted <br/>
-            <a asp-controller="Todo" asp-action="MarkAsCompleted" asp-route-itemGuid="@todoModel.ItemId">Remove from Completed</a>
-
-            <br />
-            <br />
-            <br />
-        </div>
-    }
+<h1>Completed Todos</h1>
     
-<a asp-controller="Todo" asp-action="Index">Back</a>
+<p><a asp-controller="Todo" asp-action="Index">Back to active todos</a> </p>
+
+<br />
+
+@await Html.PartialAsync("ItemsPartial")
+@Html.Partial("ItemsPartial")
+@{
+    Html.RenderPartial("ItemsPartial");
+}
+    
+<a asp-controller="Todo" asp-action="Index">Back to active todos</a>
 
 </body>
 </html>

@@ -1,0 +1,18 @@
+﻿* {
+    font-family: "Calibri";
+}
+
+h1 {
+    color: black;
+    
+}
+
+a {
+    color: #4359d5;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+        text-decoration: underline;
+}

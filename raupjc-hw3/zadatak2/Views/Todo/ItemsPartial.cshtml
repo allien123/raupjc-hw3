@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ItemsPartial</title>
+</head>
+<body>
+
+@foreach (var todoModel in @Model.TodoModels)
+{
+    <div>
+        <b>@todoModel.Text</b> 
+        @if (@todoModel.DateCompleted.Length == 0)
+        {
+            <span style="color: #ff0000"> @todoModel.DeadlineWarningText </span>
+           
+            if (@todoModel.DateDue.Length > 0)
+            {
+                <br/>
+                @todoModel.DateDue
+            }
+        }
+        else
+        {
+            <br/>
+            @todoModel.DateCompleted
+        }
+        <br/>
+        <a asp-controller="Todo" asp-action="MarkAsCompleted" asp-route-itemGuid="@todoModel.ItemId">@todoModel.LinkText</a>
+            
+        <br/>
+        <br/>
+        <br/>
+    </div>
+}
+
+</body>
+</html>

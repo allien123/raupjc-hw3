@@ -58,7 +58,7 @@ namespace zadatak2.Controllers
             item.DateCreated = DateTime.Now;
             item.DateDue = todoModel.DateDue;
 
-            string[] labels = todoModel.labels.Split(';');
+            string[] labels = todoModel.labels==null?new string[0]{}:todoModel.labels.Split(';');
             item.Labels = new List<TodoItemLabel>();
             
             foreach (string lab in labels)

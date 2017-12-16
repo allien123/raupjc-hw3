@@ -12,6 +12,7 @@ namespace zadatak2.ViewModels
         public List<string> labels { get; set; }
         public string DateCompleted { get; set; }
         public string DateDue { get; set; }
+        public string LinkText;
 
         public TodoViewModel(TodoItem item)
         {
@@ -20,7 +21,7 @@ namespace zadatak2.ViewModels
             labels = item.Labels.ConvertAll(lab=>lab.Value);
             DateCompleted = dateToString(item.DateCompleted);
             DateDue = "";
-            
+            LinkText = item.DateCompleted == null ? "Mark as completed" : "Remove from completed";
 
             if (item.DateDue.HasValue)
             {
@@ -42,9 +43,9 @@ namespace zadatak2.ViewModels
                     {
                         DeadlineWarningText = "(za ";
                     }
-                    if (Math.Abs(daysLeft) == 1)
+                    if (Math.Abs(daysLeft)%10 == 1 && Math.Abs(daysLeft) % 100!=11)
                     {
-                        DeadlineWarningText += "1 dan!)";
+                        DeadlineWarningText += Math.Abs(daysLeft).ToString() + " dan!)";
                     }
                     else
                     {
